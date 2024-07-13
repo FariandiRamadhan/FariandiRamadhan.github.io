@@ -18,7 +18,14 @@
     <header>
         <div class="header-title">
             <h1 id="home">Hi, I'm Fariandi Ramadhan</h1>
-            <h3>A Web Developer</h3>
+            <div class="wrapper">
+                <h3 class="static-text">A</h3>
+                <div class="dynamic-texts" style="--count:3;--f_size: 24px;">
+                    <p>Backend Developer</p>
+                    <p>Frontend Developer</p>
+                    <p>Fullstack Developer</p>
+                </div>
+            </div>
             <a href="#projects" class="header-button">PROJECTS</a>
         </div>
     </header>
@@ -32,6 +39,18 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe placeat maxime libero ut doloremque nesciunt, temporibus adipisci minima corporis aliquam quasi obcaecati distinctio quae quaerat impedit itaque voluptatibus. Consequuntur, delectus.</p>
         <h2 id="projects">My Projects</h2>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est recusandae laudantium maiores alias odit labore unde. Provident, voluptates delectus rem alias aliquid velit laboriosam sit unde similique blanditiis, suscipit mollitia!</p>
+        <section class="h-auto">
+            <div class="slider  motion-safe:overflow-hidden" style="--width:220px;--height:200px;--quantity:2;">
+            <div class="list">
+                <div class="item" style="--position:1">
+                    <img class="picture-conf" src="assets/img/laptop0.jpg" alt="My Project"/>        
+                </div>
+                <div class="item" style="--position:2">
+                    <img class="picture-conf" src="assets/img/laptop0.jpg" alt="My Project"/>        
+                </div>
+            </div>
+        </div>
+        </section>
     </main>
     <script src="assets/scripts/main.js"></script>
 </body>

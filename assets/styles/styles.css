@@ -1,9 +1,17 @@
 :root{
+    --dynamic-text: 24px;
     --transparent-light-purple: rgba(71, 71, 250, 0.6);
     --full-light-purple: rgba(71, 71, 250, 1);
     --black: black;
     --nav-transparent: rgba(255,255,255, 0.7);
     --nav-full : rgba(255,255,255, 1);
+    --bg-header-button:  rgba(71, 71, 250, 1);
+    --success: rgb(75, 227, 58);
+    --danger: rgba(255,0,20);
+    --form-button: rgba(31, 30, 30, 0.5);
+    --form-button-hover: rgba(31, 30, 30, 1);
+    --card-content-hover: rgba(255, 255, 255, .8);
+    --bg-footer: rgba(4, 4, 4, 0.8);
 }
 *{
     padding: 0;
@@ -22,6 +30,7 @@ nav{
     right: 0;
     z-index: 10;
     height: 80px;
+    border-bottom: 3px solid aqua;
 }
 .bg-full-color{
     background-color: var(--nav-full);
@@ -34,7 +43,7 @@ nav{
     width: 30%;
     justify-content: space-around;
 }
-.menu >*{
+.menu > *{
     font-weight: bold;
     color: var(--black);
     border-bottom: 2px solid transparent;
@@ -49,34 +58,22 @@ nav{
 header{
     display: grid;
     height: 100vh;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
     padding: 0 10%;
     background-color: thistle;
-    /* background-color: rgba(0,0,0,0.1); */
 }
 .header-title{
     display: grid;
-    place-items: start;
-    grid-column-start: 2;
-    grid-row-start: 1;
     width: 100%;
     gap: 20px;
-}
-
-.header-title h1{
-    font-size: 2em;
-}
-
-.header-image{
-    width: 18rem;
-    overflow: hidden;
 }
 .header-image img{
     width: 100%;
     aspect-ratio: 4/4;
     clip-path: polygon(25% 0, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-    background-color: black;
+    background-color: yellow;
+}
+.hide-image{
+    display: none;
 }
 
 /* TYPING TEXT START */
@@ -90,10 +87,10 @@ header{
 }
 .wrapper .dynamic-texts{
     position: relative;
-    font-size: var(--f_size);
+    font-size: var(--dynamic-text);
     text-wrap: nowrap;
     margin-left: 10px;
-    height: calc(var(--f_size) + 3px);
+    height: calc(var(--dynamic-text) + 3px);
     overflow: hidden;
 }
 .dynamic-texts p{
@@ -120,7 +117,7 @@ header{
 }
 
 .header-button:hover{
-    background-color: rgba(71, 71, 250, 1);
+    background-color: var(--bg-header-button);
     box-shadow: none;
     text-shadow: none;
 }
@@ -128,42 +125,33 @@ header{
 
 main{
     position: relative;
-    display: grid;
-    padding: 1rem 2rem;
-    width: 80%;
-    margin-inline: auto;
-}
-main::after{
-    content: '';
-    display: block;
-    position: absolute;
-    justify-self: center;
-    padding: 2rem;
-    z-index: 1;
-    top: -10%;
-    background: url('../img/dropdown.svg') no-repeat;
-    background-size: 80px;
-    background-position: center;
-    animation: blink 3s linear infinite;
+    padding-top: 4rem;
 }
 main > * {
-    padding-block: 2rem;
+    width: 80%;
+    margin-inline: auto;
+    padding-bottom: 2rem;
 }
-#social{
-    --height:120px;
+#notification{
+    display: none;
     position: fixed;
-    z-index: 100;
-    top:calc(50% - (var(--height) / 2));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    padding: 10px;
-    width: 50px;
-    height: var(--height);
-    margin-left: 20px;
-    box-shadow: 2px 2px 1px var(--black);
-    background-color: white;
+    width: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    padding: 1rem;
+    top: 20%;
+    z-index: 99;
+    text-align: center;
+    font-weight: bold;
+}
+#notification.success{
+    display: block;
+    background-color: var(--success);
+}
+#notification.failed{
+    display: block;
+    background-color: var(--danger);
 }
 
 h2{
@@ -174,142 +162,35 @@ h2{
     margin-bottom: 40px;
     text-align: center;
 }
-/* .first-section{
-    border: 1px solid red;
-} */
-.f-container{
-    height: min-content;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-.f-card{
-    display: block;
-    text-align: center;
-}
-.f-icon{
-    display: inline-block;
-    height: 80px;
-    position: relative;
-    text-align: center;
-    width: 80px;
-  }
-.icon-f{
-    --icon-font-size: 3rem;
-    font-size: var(--icon-font-size);
-    display: inline-block;
-    height: inherit;
-    width: 57.735%;
-    text-align: center;
-    background-color: #04c2c9;
-}
-.icon-f::before{
-    content: "";
-    position: absolute;
-    height: inherit;
-    width: inherit;
-    top: 0;
-    right: 21.1325%;
-    transform: rotateZ(60deg);
-    background-color: inherit;
-}
-.icon-f::after{
-    content: "";
-    position: absolute;
-    height: inherit;
-    width: inherit;
-    top: 0;
-    right: 21.1325%;
-    transform: rotateZ(-60deg);
-    background-color: inherit;
-}
-.icon-f i{
-    position: absolute;
-    top: calc(50% - (var(--icon-font-size)/2));
-    left: 0;
-    right: 0;
-    z-index: 1;
-    color: #fff;
-}
-
-/* CARD START */
-.b{
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: min-content;
- }
-.card{
-    width: 15rem;
-    height: 15rem;
-    position: relative;
-    background-color: azure;
-}
-.card-image{
-    position: absolute;
-    width: 100%;
-    z-index: 1;
-}
-.card-image img{
-    width: 100%;
-}
-.card-content{   
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 2;
-    transition: all 0.5s ease-in-out;
-}
-.card-content:hover{
-    transition: all 0.5s ease-in-out;
-    opacity: 1;
-    padding-block: 2rem;
-    background-color:  rgba(255, 255, 255, .8);
-}
-.more-info{
-    padding: .6rem 1.8rem;
-    border:1px solid purple;
-    background-color: none;
-    color: purple;
-    transition: all 1.2s;
-}
-.more-info:hover{
-    border: none;
-    background-color: purple;
-    color:rgba(255, 255, 255, .8);
-}
-/* CARD END */
-
-.form-contact form{
-    margin-inline: auto;
-    width: 50%;
-}
-.form-contact form > * {
-    margin-bottom: 10px;
-}
-.form-contact form input,textarea{
-    display: block;
-    width: 100%;
-    min-height: 1.5rem;
-}
-.form-contact button{
-    padding: .6rem 1.8rem;
-}
 
 footer{
     display: flex;
     position: relative;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 1rem;
-    height: 100px;
-    background-color: blueviolet;
+    height: 120px;
+    background-color: var(--bg-footer);
     width: 100%;
+    gap: 2rem;
+    color: white;
+}
+
+.social{
+    display: flex;
+    width: 25%;
+    height: 50px;
+    justify-content: space-around;
+    align-items: center;
+}
+.social a{
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.social a:hover{
+    transform: scale(1.25);
+    color:aqua;
 }
 
 @keyframes autoRun{
@@ -319,22 +200,92 @@ footer{
         left: calc(var(--width) * -1);
     }
 }
-
-@keyframes blink {
-    from{
-        opacity: 0.4;
-    }to{
-        opacity: 1;
-    }
-}
 @keyframes typing {
     60%{
         width: 100%;
+    }   
+}
+@keyframes spin {
+    to{
+        transform: rotateY(720deg);
     }
-    
 }
 @keyframes slide {
     100%{
         transform: translateY(calc( -1 * var(--f_size) * 3.5));
     }   
+}
+@keyframes blink {
+    40%{
+        opacity: 0.4;
+    }   
+    100%{
+        opacity: 1;
+    }   
+}
+@keyframes translate-top {
+    from{
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    80%{
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 1;
+    }   
+}
+@media screen and (min-width: 481px) {
+    header{
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
+    }
+    .header-title{
+        place-items: start;
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+    .header-title h1{
+        font-size: 2em;
+    }
+    .header-title h1::before{
+        content: 'Hi, ';
+    }
+    .header-image{
+        width: 18rem;
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 480px) {
+    .menu{
+        width: 70%;
+    }
+    header{
+        justify-items: center;
+        align-items: start;
+        padding: 88px 0 0;
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr;
+        padding-inline: 20px;
+    }
+    .header-title{
+        place-items: center;
+        grid-row-start: 2;
+    }
+    .header-title h1{
+        font-size: 1.8rem;
+    }
+    .header-title h1::before{
+        content: 'Hi, ';
+        display: flex;
+        justify-content: center;
+
+    }
+    .header-image{
+        width: 60%;
+        overflow: hidden;
+    }
+    .social{
+        width: 50%;
+    }
 }

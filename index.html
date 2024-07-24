@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fariandi Ramadhan</title>
-    <link rel="stylesheet" href="assets/styles/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <title>My Portofolio | Fariandi Ramadhan</title>
     <link rel="shortcut icon" href="assets/img/dropdown.svg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="assets/styles/firstSection.css">
+    <link rel="stylesheet" href="assets/styles/projectSection.css">
+    <link rel="stylesheet" href="assets/styles/formContactSection.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="bg-transparent">
         <div class="menu">
             <a href="#home">Home</a>
@@ -18,12 +20,13 @@
             <a href="#contact">Contact</a>
         </div>
     </nav>
+    <!-- Header -->
     <header>
         <div class="header-title">
-            <h1 id="home">Hi, I'm Fariandi Ramadhan</h1>
+            <h1 id="home">I'm Fariandi Ramadhan</h1>
             <div class="wrapper">
                 <h3 class="static-text">A</h3>
-                <div class="dynamic-texts" style="--count:3;--f_size: 24px;">
+                <div class="dynamic-texts">
                     <p>Backend Developer</p>
                     <p>Frontend Developer</p>
                     <p>Fullstack Developer</p>
@@ -32,14 +35,14 @@
             <a href="#projects" class="header-button">PROJECTS</a>
         </div>
         <div class="header-image">
-            <img src="assets/img/jashitam-removebg-preview.png" alt="fariandi">
+            <img src="assets/img/jashitam.png" alt="fariandi ramadhan">
+            <img src="assets/img/jashitam-big.png" class="hide-image" alt="fariandi ramadhan" loading="eager">
         </div>
     </header>
-    <div id="social">
-        <a href="https://www.instagram.com/fari.rmdhn_/"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/fariandi-ramadhan"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/FariandiRamadhan"><i class="fa-brands fa-github"></i></a>
-    </div>
+    <!-- Show Notification -->
+    <div id="notification"></div>
+
+    <!-- Main Website -->
     <main>
         <article id="main-article">
             <div class="section-header">
@@ -51,7 +54,7 @@
                     <div class="f-card">
                         <div class="f-icon">
                             <div class="icon-f">
-                                <i class="mdi mdi-clock-fast"></i>
+                                <iconify-icon icon="mdi:clock-fast"></iconify-icon>
                             </div>
                         </div>
                         <div class="f-content">
@@ -62,7 +65,7 @@
                     <div class="f-card">
                         <div class="f-icon">
                             <div class="icon-f">
-                                <i class="mdi mdi-cellphone-link"></i>
+                                <iconify-icon icon="mdi:cellphone-link"></iconify-icon>
                             </div>
                         </div>
                         <div class="f-content">
@@ -73,7 +76,7 @@
                     <div class="f-card">
                         <div class="f-icon">
                             <div class="icon-f">
-                                <i class="mdi mdi-lightbulb-on-outline"></i>
+                                <iconify-icon icon="mdi:lightbulb-on-outline"></iconify-icon>
                             </div>
                         </div>
                         <div class="f-content">
@@ -84,88 +87,68 @@
                 </div>
             </section>
         </article>
+        <!-- Template for Creating Card -->
+        <template id="card">
+            <div class="card">
+                <div class="card-image">
+                    <img src="" alt="" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <div class="card-header"> <h4>Laptop A</h4></div>
+                    <div class="card-body">
+                        <button class="more-info">More Info</button>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- Project Section -->
         <section id="project-section">
             <div class="section-header">
                 <h2 id="projects">My Projects</h2>
                 <p>These are some project that I'm working on</p>
             </div>
-            <div class="b">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets/img/laptop0.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header"> <h4>Laptop A</h4></div>
-                        <div class="card-body">
-                            <button class="more-info">More Info</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets/img/laptop0.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header"> <h4>Laptop A</h4></div>
-                        <div class="card-body">
-                            <button class="more-info">More Info</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets/img/laptop0.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header"> <h4>Laptop A</h4></div>
-                        <div class="card-body">
-                            <button class="more-info">More Info</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets/img/laptop0.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header"> <h4>Laptop A</h4></div>
-                        <div class="card-body">
-                            <button class="more-info">More Info</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets/img/laptop0.jpg" alt="">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-header"> <h4>Laptop A</h4></div>
-                        <div class="card-body">
-                            <button class="more-info">More Info</button>
-                        </div>
-                    </div>
-                </div>     
+            <div class="b">     
             </div>
         </section>
+
+        <!-- Contact Section -->
         <section class="form-contact">
+            <svg class="svg-contact" preserveAspectRatio="none" viewBox="0 0 100 102" height="75" width="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" class="svgcolor-black">
+                <path d="M0 0 L50 100 L100 0 Z" fill="#e0e0e0" stroke="#e0e0e0"></path>
+            </svg>
             <div class="section-header">
                 <h2 id="contact">Contact</h2>
                 <p>If you have any question or you want to work together, let me know</p>
             </div>
-            <form action="/" method="get">
-                <label for="name">Name : </label>
-                <input type="text" name="name" id="name">
-                <label for="email">Email : </label>
-                <input type="email" name="email" id="email">
-                <label for="message">Your Message : </label>
-                <textarea name="message" id="message"></textarea>
+            <form action="/" method="get" name="contact-form" style="--position: 2;">
+                <div class="input-container">
+                    <input type="text" name="name" id="name" required>
+                    <label for="name">Name </label>
+                </div>
+                <div class="input-container">
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">Email </label>
+                </div>
+                <div class="input-container">
+                    <textarea name="message" id="message" required></textarea>
+                    <label for="message">Your Message </label>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer>
+        <div class="social">
+            <a href="https://www.instagram.com/fari.rmdhn_/"><img src="assets/img/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.linkedin.com/in/fariandi-ramadhan"><img src="assets/img/linkedin.svg" alt="LinkedIn"></a>
+            <a href="https://github.com/FariandiRamadhan"><img src="assets/img/github.svg" alt="github"></a>
+        </div>
         <p>Fariandi Ramadhan@2024</p>
     </footer>
     <script src="assets/scripts/main.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,92 @@
+.form-contact{
+    position: relative;
+    width: 100%;
+    padding-top: 125px;
+    color: white;
+    background-color: rgba(5, 5, 10, .7);
+}
+.form-contact .section-header p{
+    color: aqua;
+}
+.svg-contact{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.form-contact form{
+    width: 50%;
+    padding: 1rem;
+    margin-inline: auto;
+    color: var(--black);
+    background-color: white;
+    visibility: hidden;
+}
+.form-contact form > * {
+    margin-bottom: 10px;
+}
+.form-contact form.translate-top{
+    visibility: visible;
+    animation: translate-top 5s linear;
+    animation-duration: calc(var(--position) * 1s);
+}
+
+.input-container{
+    --input-Height: 2.5rem;
+    position: relative;   
+    height: var(--input-Height);
+    width: 100%;
+    font-size: calc(var(--input-Height) / 2.5);
+    line-height: var(--input-Height);
+    border: 1px solid var(--black);
+}
+.input-container label{
+    position: absolute;
+    left: 10px;
+    height: 100%;
+    background-color: white;
+}
+.input-container input, textarea{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border: none;
+    outline: none;
+    padding-inline: 10px;
+    color: transparent;
+    background-color: transparent;
+}
+.input-container:has(textarea) {
+    height: calc(var(--input-Height) * 4);
+}
+.input-container input:focus, input:valid, textarea:focus, textarea:valid{
+    font-size: 100%;
+    color: var(--black);
+    line-height: inherit;
+}
+.input-container input:focus + label, input:valid + label, textarea:focus + label, textarea:valid + label{
+    z-index: 11;
+    height: fit-content;
+    line-height: calc(var(--input-Height) / 2.5);
+    padding-inline: 1%;
+    transform-origin: left;
+    transform: translate(0,-8px) scale(0.7);
+}
+.form-contact button{
+    padding: .8rem 2.5rem;
+    margin-right: 10px;
+    border: none;
+    color: var(--form-button);
+    border: 2px solid var(--form-button);
+    transition: background-color 0.5s ease-out;
+}
+.form-contact button:hover{
+    color: white;
+    background-color: var(--form-button-hover);
+}
+
+@media screen and (max-width: 480px) {
+    .form-contact form{
+        width: 70%;
+    }
+}

@@ -1,7 +1,7 @@
 const headerImage = document.querySelector(".header-image");
 const images = headerImage.getElementsByTagName("img");
 const fIcons = Array.from(document.getElementsByClassName("f-icon"));
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyyW6BQy8VtnZFj2SlYO08Zvtta_VABPSgNWfg_DRBXdVLU4KO96fGi0-nYs5EFlEVA/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxRKUx2gJoSIc70ZxmHrbCNrxxuJ3gpbsCeEbCkO8iUFJ3rLgdOMlFF6tYKWtjeG9xY/exec'
 const form = document.forms['contact-form'];
 
 // Make navigator has a solid bg-color
@@ -55,14 +55,30 @@ fIcons.forEach((fIcon)=>{
 });
 objObserver(translateTop, form)
 
+function generateModal(){
+    const dialog = document.querySelector("dialog");
+    dialog.classList.toggle("open")
+    if(dialog.classList.contains("open")){
+        dialog.showModal();
+    } else if (!dialog.classList.contains("open")){
+        dialog.close();
+    }
+}
+
 // Handle card
 function generateCardText(text,position){
     const template = document.querySelector("template#card");
     const projectSection = document.querySelector("section#project-section .b");
+    const dialogClose = document.getElementById("dialog-close");
     const childTemplate = template.content.firstElementChild.cloneNode(true);
-    childTemplate.children[0].children[0].src = `assets/img/${text.preview}`;
-    childTemplate.children[1].children[0].children[0].textContent = text.title;
-    childTemplate.style = `--position:${position > 3? position -= 1.75:position + 1.5}`;
+    const imagePreview = childTemplate.querySelector("img");
+    const cardHeader = childTemplate.querySelector(".card-header");
+    const moreInfoButton = childTemplate.querySelector(".more-info");
+    imagePreview.src = `assets/img/${text.preview}`;
+    cardHeader.children[0].textContent = text.title;
+    childTemplate.style = `--duration:${position > 3? position -= 1.75:position + 1.5}`;
+    moreInfoButton.onclick = generateModal;
+    dialogClose.onclick = generateModal;
     projectSection.appendChild(childTemplate);
     objObserver(translateTop, childTemplate);
 }
@@ -83,6 +99,7 @@ function notification(text, status){
     }, 5000);
 }
 
+// Handle Form submit
 form.addEventListener('submit', e => {
     e.preventDefault()
     e.target[e.target.length - 1].textContent = "Loading...";

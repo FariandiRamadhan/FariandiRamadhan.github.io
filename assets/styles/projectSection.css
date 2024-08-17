@@ -64,7 +64,7 @@
 }
 .translate-top.card{
     animation: translate-top 5s linear;
-    animation-duration: calc(var(--position) * 1s);
+    animation-duration: calc(var(--duration) * 1s);
 }
 /* CARD END */
 

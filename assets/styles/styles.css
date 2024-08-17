@@ -20,6 +20,10 @@
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
 }
+html {
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
+}
 
 /* Navbar Start */
 nav{
@@ -152,6 +156,30 @@ main > * {
 #notification.failed{
     display: block;
     background-color: var(--danger);
+}
+dialog{
+    gap: 1rem;
+    left: 50%;
+    max-width: 50%;
+    height: 92%;
+    transform: translate(-50%);
+    border: none;
+}
+dialog .action-button{
+ display: flex;
+ justify-content: space-between;
+ padding: 1rem;
+}
+dialog img{
+    width: 100%;
+    aspect-ratio: 5/3;
+
+}
+dialog .dialog-body{
+    padding: 1rem;
+}
+dialog::backdrop{
+    background-color: rgba(33,33,33, 0.4)
 }
 
 h2{
